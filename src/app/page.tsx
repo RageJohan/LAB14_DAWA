@@ -1,103 +1,129 @@
-import Image from "next/image";
+import type { Metadata } from "next"
+import Link from "next/link"
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Inicio | Mi Proyecto SEO",
+  description:
+    "Bienvenido a la página de inicio de nuestro proyecto optimizado para SEO. Descubre contenido de calidad y servicios profesionales.",
+  openGraph: {
+    title: "Inicio | Mi Proyecto SEO",
+    description: "Explora nuestra página de inicio, optimizada para buscadores y redes sociales.",
+    type: "website",
+  },
+}
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      {/* Header */}
+      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4">
+          <nav className="flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <div className="h-8 w-8 bg-blue-600 rounded-full flex items-center justify-center">
+                <span className="text-white font-bold">★</span>
+              </div>
+              <span className="text-xl font-bold text-gray-900">Mi Proyecto SEO</span>
+            </div>
+            <div className="hidden md:flex items-center space-x-6">
+              <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                Inicio
+              </Link>
+              <Link href="/blog" className="text-gray-700 hover:text-blue-600 transition-colors">
+                Blog
+              </Link>
+              <Link href="/contacto" className="text-gray-700 hover:text-blue-600 transition-colors">
+                Contacto
+              </Link>
+            </div>
+          </nav>
         </div>
+      </header>
+
+      <main className="container mx-auto px-4 py-12">
+        {/* Hero Section */}
+        <section className="text-center mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">Bienvenido a Mi Proyecto SEO</h1>
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Descubre contenido de calidad, optimizado para buscadores y diseñado para ofrecerte la mejor experiencia
+            digital.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/blog"
+              className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              <span className="mr-2">📚</span>
+              Explorar Blog
+            </Link>
+            <Link
+              href="/contacto"
+              className="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-900 font-medium rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors"
+            >
+              <span className="mr-2">✉️</span>
+              Contáctanos
+            </Link>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="grid md:grid-cols-2 gap-8 mb-16">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-lg transition-shadow">
+            <div className="flex items-center mb-4">
+              <span className="text-2xl mr-3">📚</span>
+              <h3 className="text-xl font-semibold text-gray-900">Blog Actualizado</h3>
+            </div>
+            <p className="text-gray-600 mb-4">Contenido fresco y relevante sobre tecnología y desarrollo web</p>
+            <p className="text-gray-600 mb-6">
+              Mantente al día con las últimas tendencias, tutoriales y mejores prácticas del mundo del desarrollo web.
+            </p>
+            <Link href="/blog" className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium">
+              Leer Artículos
+              <span className="ml-2">→</span>
+            </Link>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-lg transition-shadow">
+            <div className="flex items-center mb-4">
+              <span className="text-2xl mr-3">✉️</span>
+              <h3 className="text-xl font-semibold text-gray-900">Contacto Directo</h3>
+            </div>
+            <p className="text-gray-600 mb-4">Estamos aquí para ayudarte con tus proyectos</p>
+            <p className="text-gray-600 mb-6">
+              ¿Tienes una pregunta o necesitas ayuda con tu proyecto? No dudes en ponerte en contacto con nosotros.
+            </p>
+            <Link href="/contacto" className="inline-flex items-center text-green-600 hover:text-green-700 font-medium">
+              Escribenos
+              <span className="ml-2">→</span>
+            </Link>
+          </div>
+        </section>
+
+        {/* Stats Section */}
+        <section className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">100+</div>
+              <div className="text-gray-600">Artículos Publicados</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-green-600 mb-2">50K+</div>
+              <div className="text-gray-600">Lectores Mensuales</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-purple-600 mb-2">24/7</div>
+              <div className="text-gray-600">Soporte Disponible</div>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-8 mt-16">
+        <div className="container mx-auto px-4 text-center">
+          <p>&copy; 2025 Mi Proyecto SEO. Todos los derechos reservados.</p>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
