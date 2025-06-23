@@ -1,5 +1,8 @@
-export default function handler(req, res) {
-  const baseUrl = 'https://mi-proyecto-seo.com'; // Cámbialo al dominio real
+import { NextResponse } from 'next/server';
+
+export async function GET() {
+  const baseUrl = 'https://lab14-dawa.onrender.com';
+
   const pages = ['/', '/home', '/blog', '/contacto'];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -15,7 +18,10 @@ export default function handler(req, res) {
     .join('')}
 </urlset>`;
 
-  res.setHeader('Content-Type', 'text/xml');
-  res.write(sitemap);
-  res.end();
+  return new NextResponse(sitemap, {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/xml',
+    },
+  });
 }

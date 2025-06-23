@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mi-proyecto-seo.com/api/sitemap
+Sitemap: https://lab14-dawa.onrender.com/api/sitemap
